@@ -88,3 +88,14 @@ mvn spring-boot:build-image
 ```cli
 httpyac send http/* --all -o short
 ```
+### Usefull metrics
+
+* http.server.requests : See time spend and count of controller calls
+* http.client.requests : See time spend and count of restTemplate/webclient requests
+* spring.cloud.function : Time spend and count to produce and consume messages (kafka). Require `@Timed` in producer classes see `DeviceSecProducerAdapter` and a bean of type `TimedAspect` and `MicrometerConfiguration`
+* spring.data.repository.invocations: Time spend and count 
+
+Example to call a metric
+```cli
+http http://localhost:8090/actuator/metrics/spring.cloud.function
+```
