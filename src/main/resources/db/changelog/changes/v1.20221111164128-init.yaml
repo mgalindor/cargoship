@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2ea08c71-4f62-45c4-acce-ccab6ce3dd06
+      author: mgldrz@gmail.com
+      comment: init database
+      changes:
+        - tagDatabase:
+            tag: 1.0.0
+        - createTable:
+            tableName: tx_claims
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: policy_id
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: state
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_date
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_by
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+

@@ -1,0 +1,14 @@
+### Create Claim
+# @name createClaim
+POST http://localhost:8080/claims
+Content-Type: application/json
+
+{
+    "policyId":"{{$uuid}}",
+    "productType":"product1",
+    "state":"active"
+}
+
+### Find Claim
+# @ref createClaim
+GET http://localhost:8080/claims/{{createClaim.id}}

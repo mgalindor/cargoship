@@ -1,0 +1,8 @@
+### Actuator Health
+GET http://localhost:8090/actuator/health
+### Actuator Info
+GET http://localhost:8090/actuator/info
+### Actuator Metrics
+GET http://localhost:8090/actuator/metrics
+### Actuator Prometheus
+GET http://localhost:8090/actuator/prometheus

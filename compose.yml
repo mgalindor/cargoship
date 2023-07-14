@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  pg:
+    image: postgres:15.0
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: pa55word
+      POSTGRES_USER: user
+      POSTGRES_DB: claims
+
+  mongo:
+    image: mongo:6.0.7
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pa55word
+
+  redis:
+    image: redis:7.0.5
+    ports:
+      - 6379:6379
+    environment:
+      REDIS_PASSWORD: pa55word
+
+  kafka:
+    image: landoop/fast-data-dev:latest
+    environment:
+      ADV_HOST: '127.0.0.1'
+      RUNTESTS: 0
+      FORWARDLOGS: 0
+      SAMPLEDATA: 0
+    ports:
+      - 2181:2181                 # Zookeeper port
+      - 3030:3030                 # Landoop UI port
+      - 8081-8083:8081-8083       # REST Proxy, Schema Registry, Kafka Connect ports
+      - 9581-9585:9581-9585       # JMX Ports
+      - 9092:9092                 # Kafka Broker port
