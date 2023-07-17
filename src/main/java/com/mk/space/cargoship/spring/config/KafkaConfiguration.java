@@ -13,7 +13,7 @@ public class KafkaConfiguration {
 
   @Bean
   public SchemaRegistryClient schemaRegistryClient(
-      SchemaRegistryClientProperties schemaRegistryClientProperties) {
+          SchemaRegistryClientProperties schemaRegistryClientProperties) {
     ConfluentSchemaRegistryClient client = new ConfluentSchemaRegistryClient();
     client.setEndpoint(schemaRegistryClientProperties.getEndpoint());
     return client;

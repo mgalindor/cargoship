@@ -1,14 +1,14 @@
 package com.mk.space.cargoship.adapters.prim.rest;
 
+import org.mapstruct.Mapper;
+import org.springframework.web.bind.annotation.*;
+
 import com.mk.space.cargoship.core.domain.ClaimDo;
 import com.mk.space.cargoship.core.ports.prim.ClaimPrimPort;
 import com.mk.space.cargoship.spring.aspect.Loggable;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import org.mapstruct.Mapper;
-import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Loggable
@@ -39,11 +39,14 @@ public class ClaimInRestAdapter {
     ClaimResponse fromClaimDo(ClaimDo claimDo);
   }
 
+
   public record CreateClaimRequest(String policyId, String productType, String state) {
   }
 
+
   public record CreateClaimResponse(String id) {
   }
+
 
   public record ClaimResponse(String id, String policyId, String productType, String state) {
   }

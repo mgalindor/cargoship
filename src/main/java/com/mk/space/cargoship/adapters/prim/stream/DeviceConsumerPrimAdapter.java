@@ -16,6 +16,6 @@ public class DeviceConsumerPrimAdapter implements Consumer<Device> {
 
   @Override
   public void accept(Device device) {
-    log.debug("Catch Event [{}]",device);
+    log.debug("Catch Event [{}]", device);
   }
 }

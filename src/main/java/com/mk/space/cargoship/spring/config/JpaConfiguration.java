@@ -1,7 +1,5 @@
 package com.mk.space.cargoship.spring.config;
 
-import com.mk.space.cargoship.core.annotations.Behavior;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -12,14 +10,16 @@ import org.springframework.transaction.interceptor.NameMatchTransactionAttribute
 import org.springframework.transaction.interceptor.RuleBasedTransactionAttribute;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
+import com.mk.space.cargoship.core.annotations.Behavior;
+
 @Configuration
 @EnableJpaRepositories(basePackages = "com.mk.space.cargoship.adapters.sec.jpa",
-    considerNestedRepositories = true)
+        considerNestedRepositories = true)
 public class JpaConfiguration {
 
   @Bean
   BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor(
-      TransactionManager transactionManager) {
+          TransactionManager transactionManager) {
 
     RuleBasedTransactionAttribute readOnlyAttribute = new RuleBasedTransactionAttribute();
     readOnlyAttribute.setReadOnly(true);
@@ -32,7 +32,7 @@ public class JpaConfiguration {
     source.addTransactionalMethod("*", new RuleBasedTransactionAttribute());
 
     BeanFactoryTransactionAttributeSourceAdvisor advisor =
-        new BeanFactoryTransactionAttributeSourceAdvisor();
+            new BeanFactoryTransactionAttributeSourceAdvisor();
     advisor.setTransactionAttributeSource(source);
     advisor.setAdvice(new TransactionInterceptor(transactionManager, source));
     advisor.setClassFilter(clazz -> AnnotationUtils.findAnnotation(clazz, Behavior.class) != null);

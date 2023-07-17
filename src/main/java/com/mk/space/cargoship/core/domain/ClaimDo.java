@@ -1,9 +1,9 @@
 package com.mk.space.cargoship.core.domain;
 
-import lombok.Data;
-
 import java.io.Serializable;
 import java.time.Instant;
+
+import lombok.Data;
 
 @Data
 public class ClaimDo implements Serializable {

@@ -1,5 +1,8 @@
 package com.mk.space.cargoship.spring.aspect;
 
+import java.util.concurrent.CompletionStage;
+import java.util.function.BiConsumer;
+
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -10,9 +13,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.CompletionStage;
-import java.util.function.BiConsumer;
 
 @Aspect
 @Component
@@ -41,7 +41,7 @@ public class LoggingAspect {
     String methodName = joinPoint.getSignature().getName();
 
     boolean isCompletable =
-        CompletionStage.class.isAssignableFrom(methodSignature.getMethod().getReturnType());
+            CompletionStage.class.isAssignableFrom(methodSignature.getMethod().getReturnType());
 
     try {
       log.debug("In [{}.{}]", className, methodName);
@@ -49,14 +49,14 @@ public class LoggingAspect {
 
       if (isCompletable) {
         ((CompletionStage) result).whenComplete(
-            (BiConsumer<Object, Throwable>) (resp, throwable) -> {
-              if (throwable == null) {
-                log.debug("Out [{}.{}]", className, methodName);
-              } else {
-                log.debug("Out [{}.{}] Exception:[{}] Message:[{}]", className, methodName,
-                    throwable.getClass(), throwable.getMessage());
-              }
-            });
+                (BiConsumer<Object, Throwable>) (resp, throwable) -> {
+                  if (throwable == null) {
+                    log.debug("Out [{}.{}]", className, methodName);
+                  } else {
+                    log.debug("Out [{}.{}] Exception:[{}] Message:[{}]", className, methodName,
+                            throwable.getClass(), throwable.getMessage());
+                  }
+                });
       } else {
         log.debug("Out [{}]:[{}]", className, methodName);
       }
@@ -64,7 +64,7 @@ public class LoggingAspect {
 
     } catch (Throwable e) {
       log.debug("Out [{}]:[{}] Exception:[{}][{}]", className, methodName, e.getClass(),
-          e.getMessage());
+              e.getMessage());
       throw e;
     }
   }

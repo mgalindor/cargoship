@@ -1,17 +1,17 @@
 package com.mk.space.cargoship.adapters.sec.redis;
 
-import com.mk.space.cargoship.core.ports.sec.CatFactPort;
-import com.mk.space.cargoship.spring.aspect.Loggable;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
+import com.mk.space.cargoship.core.ports.sec.CatFactPort;
+import com.mk.space.cargoship.spring.aspect.Loggable;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Loggable
@@ -28,10 +28,11 @@ public class CatFactSecRedisAdapter implements CatFactPort {
     return id;
   }
 
-  @RedisHash(value = "catFact", timeToLive = 20L)//2 seconds
-  record CatFact(@Id String id, String catFact, String random) {
+  public interface CatFactRepository extends CrudRepository<CatFact, String> {
   }
 
-  public interface CatFactRepository extends CrudRepository<CatFact, String> {
+
+  @RedisHash(value = "catFact", timeToLive = 20L)//2 seconds
+  record CatFact(@Id String id, String catFact, String random) {
   }
 }

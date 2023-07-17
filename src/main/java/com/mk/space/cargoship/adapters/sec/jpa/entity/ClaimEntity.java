@@ -1,13 +1,14 @@
 package com.mk.space.cargoship.adapters.sec.jpa.entity;
 
+import java.time.Instant;
+
+import org.hibernate.annotations.UuidGenerator;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UuidGenerator;
-
-import java.time.Instant;
 
 @Getter
 @Setter

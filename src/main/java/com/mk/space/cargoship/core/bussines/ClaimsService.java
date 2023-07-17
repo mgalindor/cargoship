@@ -32,7 +32,7 @@ public class ClaimsService implements ClaimPrimPort {
 
     documentSecPort.createDocument(DocumentDo.builder().claimId(claimId).catFact(catFact).build());
 
-    deviceSecPort.saveDevice(claim.getProductType(),1);
+    deviceSecPort.saveDevice(claim.getProductType(), 1);
 
     return claimId;
   }

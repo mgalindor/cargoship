@@ -41,9 +41,12 @@ For further reference, please consider the following sections:
 * [Build Docker Image](https://docs.spring.io/spring-boot/docs/3.1.1/maven-plugin/reference/htmlsingle/#goals-build-image)
   missing
 * [Packaging OCI Images](https://docs.spring.io/spring-boot/docs/3.1.1/maven-plugin/reference/htmlsingle/#build-image)
-* Spring use [Paketo](https://paketo.io/docs/howto/java/) buildbacks, this is the [Base Image](https://github.com/paketo-buildpacks/jammy-base-stack) repository and [Java Buildpack](https://github.com/paketo-buildpacks/java) repository 
- 
+* Spring use [Paketo](https://paketo.io/docs/howto/java/) buildbacks, this is
+  the [Base Image](https://github.com/paketo-buildpacks/jammy-base-stack) repository
+  and [Java Buildpack](https://github.com/paketo-buildpacks/java) repository
+
 ### HTTP Tests
+
 * [HTTP Yac](https://httpyac.github.io/guide/installation_cli.html)
 
 ### Guides
@@ -58,5 +61,6 @@ The following guides illustrate how to use some features concretely:
 * [Build Docker Images with Podman](https://docs.spring.io/spring-boot/docs/3.1.1/maven-plugin/reference/htmlsingle/#build-image.examples.docker.podman)
 
 * [Efficient Container Images](https://docs.spring.io/spring-boot/docs/3.1.1/reference/htmlsingle/#container-images.efficient-images)
-* Patch CVE Vulnerabilities overriding [Spring Version Properties](https://docs.spring.io/spring-boot/docs/3.1.1/reference/htmlsingle/#appendix.dependency-versions.properties)
+* Patch CVE Vulnerabilities
+  overriding [Spring Version Properties](https://docs.spring.io/spring-boot/docs/3.1.1/reference/htmlsingle/#appendix.dependency-versions.properties)
 * 

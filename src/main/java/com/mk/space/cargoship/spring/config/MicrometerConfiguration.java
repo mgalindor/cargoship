@@ -8,8 +8,8 @@ import io.micrometer.core.instrument.MeterRegistry;
 
 @Configuration
 public class MicrometerConfiguration {
-    @Bean
-    public TimedAspect timedAspect(MeterRegistry registry) {
-      return new TimedAspect(registry);
+  @Bean
+  public TimedAspect timedAspect(MeterRegistry registry) {
+    return new TimedAspect(registry);
   }
 }

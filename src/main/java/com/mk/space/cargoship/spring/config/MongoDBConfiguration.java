@@ -5,6 +5,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @Configuration
 @EnableMongoRepositories(basePackages = "com.mk.space.cargoship.adapters.sec.mongo",
-    considerNestedRepositories = true)
+        considerNestedRepositories = true)
 public class MongoDBConfiguration {
 }

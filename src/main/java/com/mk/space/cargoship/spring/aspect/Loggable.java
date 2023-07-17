@@ -1,3 +1,4 @@
 package com.mk.space.cargoship.spring.aspect;
 
-public @interface Loggable {}
+public @interface Loggable {
+}
