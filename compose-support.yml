@@ -3,12 +3,20 @@ version: "3"
 services:
   mongo-express:
     image: mongo-express
-    depends_on:
-      - mongo
     ports:
-      - 9081:8081
+      - 7081:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://user:pa55word@mongo:27017/
+
+  dbeaber:
+    image: dbeaver/cloudbeaver
+    ports:
+      - 7080:8978
+
+  redisinsight:
+    image: redislabs/redisinsight
+    ports:
+      - 7001:8001
 

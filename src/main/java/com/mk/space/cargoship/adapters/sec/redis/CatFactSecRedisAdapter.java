@@ -24,12 +24,12 @@ public class CatFactSecRedisAdapter implements CatFactPort {
   @Override
   public String saveCatFact(String catFact) {
     String id = UUID.randomUUID().toString();
-    repository.save(new CatFact(id, catFact));
+    repository.save(new CatFact(id, catFact, UUID.randomUUID().toString()));
     return id;
   }
 
-  @RedisHash(value = "catFact", timeToLive = 2L)//2 seconds
-  record CatFact(@Id String id, String catFact) {
+  @RedisHash(value = "catFact", timeToLive = 20L)//2 seconds
+  record CatFact(@Id String id, String catFact, String random) {
   }
 
   public interface CatFactRepository extends CrudRepository<CatFact, String> {
